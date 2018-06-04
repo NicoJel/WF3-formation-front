@@ -24,45 +24,95 @@ var PremierTrimestre = [
     {
         nom: "Nicolas Jelsch",
         matiere: {
-            HTML : 20, CSS : 20, JS : 19, reveilmatin : 2
-            },
-            
+            HTML : 20, CSS : 20, JS : 19, ReveilMatin : 2, Modestie : -15
+            },          
     },
     {
-        nom: "Robin Desbois",
+        nom: "Robin",
         matiere: {
-            chocolat: 20, Math: 5, JS: 16
-            },
-            
+            Chocolat: 20, Madeleine : 18, Gauffre : 18, AisanceAuTableau: 5, 
+            },         
     },
     {
-        nom: "CD",
+        nom: "Sunny",
         matiere: {
-            francais : 5, anglais : 4, math : 19, physique : 5
-            },
-            
+            LunetteDeSoleil : 20, Business : 17, PartirA17h30 : 4, JS : 5
+            },          
     },
     {
-        nom: "Lou Lou",
+        nom: "Lou",
         matiere: {
-            série : 20, anglais : 20, HTML : 15, CSS : 12, JS : -5
-            },
-            
+            Séries : 20, Anglais : 20, HTML : 4, CSS : 4, JS : -2, FollowersHunting : 18
+            },        
     },
     {
-        nom: "coco lasticot",
+        nom: "Louis",
         matiere: {
-            metro : 15, boulot : 2, dodo: 20, cordeasauter : 55
-            },
-            
+            SupporterLou : 18, MaitriseDeLaSaladeComposee : 17, 
+            },        
     },
+    {
+        nom: "Marine",
+            matiere: {
+                Mix : 19, JS : 15, Epilation: 2, 
+                },        
+        },
+
+    {
+        nom: "Hugo",
+            matiere: {
+                Humour : 7, FaireDesCadeaux : 15, ParlerDeSaFianceePourFaireCroireQuilEnAUne: 20, 
+                },
+                
+        },
 
 ];
 
 
+
+
 // je parcours chaque étudiant, j'affiche le nom, les matieres et notes, puis myenne gen
 
-for (i=0; i<PremierTrimestre.length; i++) {
-    w(PremierTrimestre[i].nom + "<br>")
-    w("<ul>" + "<li>" + PremierTrimestre[i].matiere + "</li>" + "</ul>")
+
+let ol = document.createElement('ol');
+function printmatiere (matiere, trimestre){
+   
+    let ul = document.createElement('ul');
+    let li1 = document.createElement('li');
+    let p = document.createElement('p');
+    let h = document.createElement('h3'); 
+
+    h.textContent = trimestre.nom;
+    li1.appendChild(h); // place les h dans li1
+    ol.appendChild(li1); // place li1 dans ol
+
+    document.querySelector('body').appendChild(ol);  // place ol dans body, tout le reste est dans ol
+
+    let notetotale = 0;
+    let nbdenote = Object.keys(matiere).length;
+    
+    Object.keys(matiere).forEach(function (key) { 
+        
+        let li2 = document.createElement('li'); 
+        let note = matiere[key];
+        li2.textContent = key + ' : ' + note;      
+        notetotale += note;
+        ul.appendChild(li2);        
+        
+    });
+    let moyenne = "moyenne = " + (notetotale / nbdenote).toFixed(2);
+    p.textContent = moyenne;
+    li1.appendChild(ul); 
+    li1.appendChild(p); 
+      
+    
 }
+
+
+  for (var i = 0; i < PremierTrimestre.length; i++) {
+      printmatiere (PremierTrimestre[i].matiere, PremierTrimestre[i]);
+      
+  }
+
+
+
