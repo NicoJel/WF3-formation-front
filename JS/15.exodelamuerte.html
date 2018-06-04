@@ -179,12 +179,13 @@ Lors de la saisie du Pseudo, vous devrez afficher en temps réel dans le titre i
                 
             
             membres.push({'pseudo': pseudoUser.value, 'age': age.value, 'email': email.value, 'password': password.value  });
-            document.write('Merci ' + pseudoUser.value + ' ! Tu es maintenant inscrit.<br>Voici la liste de nos membres : <br>')
+            document.write('Merci ' + pseudoUser.value + ' ! Tu es maintenant inscrit.<br><br>Voici la liste de nos membres : <br><br>')
             console.log('coucou');
-
+            
             for (j=0; j<membres.length; j++){
-                    document.write((membres[j].pseudo).value + ' : ' + (membres[j].age).value + '<br>')
+                    document.write('<li>' + membres[j].pseudo + ' : ' + membres[j].age + ' ans</li>')
                 }
+            
         }
 
         submit.addEventListener('click', soumission);  
