@@ -68,7 +68,7 @@ Lors de la saisie du Pseudo, vous devrez afficher en temps réel dans le titre i
     <h1>Formulaire d'inscription</h1>
     <h3 id="Bienvenue"></h3>
     <!-- Emmet : form>(input[type=text][id=$])*5 -->
-    <form method="get"  id="InscriptionForm">
+    <form method="get" action="inscription.php" id="InscriptionForm">
         <input type="text"  value=""  id="pseudo"  placeholder="Choisissez un Pseudo"><br />
         <div class="pseudoError">Ce pseudo est déjà pris.</div><br />
         <input type="text" value="" id="age" placeholder="Quel est votre Age ?"><br />
@@ -98,7 +98,7 @@ Lors de la saisie du Pseudo, vous devrez afficher en temps réel dans le titre i
         var titre = document.getElementById('Bienvenue');
 
 
-        // -- ETAPE 1 & 3
+            // -- ETAPE 1 & 3
         
         // FONCTION CHECKPSEUDO -- ETAPE 1
 
@@ -157,38 +157,31 @@ Lors de la saisie du Pseudo, vous devrez afficher en temps réel dans le titre i
         }
         age.addEventListener('input', checkage);
                 
-                // -- Etape 4A
+                // -- Etape 4
+            
+        function soumission(e){
                 
-        /*ETAPE 4 : Si toutes les conditions sont validées, l'utilisateur va pouvoir procéder à son inscription.
-        
-        En cliquant sur le bouton "M'inscrire", vous devrez enclencher une action permettant :
-        
-            A. L'ajout de l'utilisateur dans le tableau.
-            B. L'affichage pour l'utilisateur sur la page d'un message de bienvenue, ainsi que la liste des membres inscrit dans une liste non-ordonnée.
-            
-            Ex. Merci Hugo ! Tu es maintenant inscrit.
-            Voici la liste de nos Membres :
-            
-                Hugo : 26ans
-                Rodrigue : 56ans
-                ...
-                
-            NB : Devra bien entendu s'afficher le membre qui vient de s'inscrire.*/
-            
-        function soumission(){
-                
-            
+            //stopper la redirection http
+            e.preventDefault();
             membres.push({'pseudo': pseudoUser.value, 'age': age.value, 'email': email.value, 'password': password.value  });
-            document.write('Merci ' + pseudoUser.value + ' ! Tu es maintenant inscrit.<br><br>Voici la liste de nos membres : <br><br>')
-            console.log('coucou');
-            
-            for (j=0; j<membres.length; j++){
-                    document.write('<li>' + membres[j].pseudo + ' : ' + membres[j].age + ' ans</li>')
-                }
-            
-        }
 
-        submit.addEventListener('click', soumission);  
+            // -- Paragraphe de confirmation
+            var p = document.createElement('p');
+            p.innerHTML = "Merci " + pseudo.value + " ! <strong>Tu es maintenant inscrit.</strong><br><br><u>Voici la liste de nos membres</u>";
+            document.body.appendChild(p);
+
+            // -- Générer la liste des membres
+            var ul = document.createElement('ul');
+            for(let i = 0 ; i < membres.length ; i++) {
+
+                let li = document.createElement('li');
+                let liste = membres[i].pseudo + " : " + membres[i].age + " ans";
+                li.textContent = liste;
+                ul.appendChild(li);
+
+            }
+}
+        submit.addEventListener('submit', soumission);  
     </script>
     
 </body>
