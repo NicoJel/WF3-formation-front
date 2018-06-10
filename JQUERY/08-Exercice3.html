@@ -14,7 +14,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     
     <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
     
     <!-- Styles CSS -->
     <style>
@@ -64,7 +64,7 @@
         
         <!-- En-Tête de Présentation -->
         <header class="row">
-            <div class="contact col-xs-12">
+            <div class="contact col-12">
                 <h1>Gestion de mes Contacts</h1>
             </div>
         </header>
@@ -84,7 +84,11 @@
                             <label for="nom" class="col-md-4 control-label">Nom</label>
                             <div class="col-md-8">
                                 <input type="text" name="nom" id="nom" class="form-control" placeholder="Nom">
+                                <div class="invalid-feedback">
+                                    Vous devez saisir votre nom.
+                                </div>
                             </div>
+                            
                         </div>
                         
                         <!-- Prénom -->
@@ -92,7 +96,11 @@
                             <label for="prenom" class="col-md-4 control-label">Prénom</label>
                             <div class="col-md-8">
                                 <input type="text" name="prenom" id="prenom" class="form-control" placeholder="Prénom">
+                                <div class="invalid-feedback">
+                                    Vous devez saisir votre prénom.
+                                </div>
                             </div>
+                            
                         </div>
                         
                         <!-- Email -->
@@ -100,7 +108,11 @@
                             <label for="email" class="col-md-4 control-label">Email</label>
                             <div class="col-md-8">
                                 <input type="email" name="email" id="email" class="form-control" placeholder="Email">
+                                <div class="invalid-feedback">
+                                    Vous devez saisir votre email.
+                                </div>
                             </div>
+                            
                         </div>
                         
                         <!-- Téléphone -->
@@ -108,7 +120,11 @@
                             <label for="tel" class="col-md-4 control-label">Tel</label>
                             <div class="col-md-8">
                                 <input type="tel" name="tel" id="tel" class="form-control" placeholder="Téléphone">
+                                <div class="invalid-feedback">
+                                    Vous devez saisir votre téléphone.
+                                </div>
                             </div>
+                            
                         </div>
                         
                         <!-- Bouton d'Envoi -->
@@ -125,9 +141,7 @@
             
             <!-- Début du Tableau -->
             <div class="col-sm-6">
-                <div class="alert alert-success alert-contact">
-                    <strong>Félicitation !</strong> Votre contact est ajouté.
-                </div>
+                
                 <table id="LesContacts" class="table table-striped">
                     <thead>
                         <tr>
@@ -137,7 +151,7 @@
                             <th>Téléphone</th>
                         </tr>
                     </thead>
-                    <tbody>
+                    <tbody class="monputaindetbody">
                         <tr class="aucuncontact">
                             <td colspan="4">Aucun Contact pour le Moment.</td>
                         </tr>
@@ -156,9 +170,8 @@
     crossorigin="anonymous"></script>
     
     <!-- Bootstrap JS -->
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T" crossorigin="anonymous"></script>
     
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T" crossorigin="anonymous"></script>
     <!-- contact.custom.js -->
     <script src="assets/js/08.contact.js"></script>
     
