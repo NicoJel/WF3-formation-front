@@ -55,6 +55,7 @@
     
     </style>
 </head>
+
 <body>
     <!-- CONSIGNE : Avec l'aide de jQuery, vous devrez :-->
     
@@ -70,8 +71,16 @@
      
     
 
-    <main>
-        <input type="text" placeholder="Saisissez un terme à surligner..." id="markJS">
+    <main class="divmain">
+
+        <div class="boutons">
+                
+                <button data-search="next">↓</button>
+                <button data-search="prev">↑</button>
+                <button data-search="clear">?</button>
+        </div>
+
+        <input type="text" placeholder="Saisissez un terme à surligner..." id="markJS" name="markJ">
         <!--<section>
             <header>
                 <h1>TITRE</h1>
@@ -80,6 +89,15 @@
                 MON CONTENU
             </article>
         </section>-->
+
+        <!--<span>Search options:</span>
+        <input type="checkbox" name="opt[]" value="separateWordSearch" checked> separate word search
+        <br>
+        <input type="checkbox" name="opt[]" value="diacritics" checked> diacritics
+        <br>
+        <input type="checkbox" name="opt[]" value="debug"> debug
+        <br>-->
+
     </main>
    
     <!-- Intégration de jQuery -->
@@ -94,35 +112,83 @@
     <script>
         
         // -- En attente de jQuery
-        $(function() {
-            
-            
+    $(function() {
+        
+        
 
-            $.ajax('https://jsonplaceholder.typicode.com/posts')
-            .done(function(data) {
-                console.log(data);
-                for (i=0; i<10; i++){
-                $(`
-                <section>
-                    <header>
-                        <h1>${data[i].title}</h1>
-                    </header>
-                    <article>
-                        ${data[i].body}
-                    </article>
-                </section>
-                <footer>
-                    article numero ${data[i].id}
-                </footer>
-                `).appendTo('main');
-            }
-        });
+        $.ajax('https://jsonplaceholder.typicode.com/posts')
+        .done(function(data) {
+            console.log(data);
+            for (i=0; i<10; i++){
+            $(`
+            <section>
+                <header>
+                    <h1>${data[i].title}</h1>
+                </header>
+                <article>
+                    ${data[i].body}
+                </article>
+            </section>
+            <footer>
+                article numero ${data[i].id}
+            </footer>
+            `).appendTo('main');
+        }
     });
 
+//version prof
 
 
-    // end jQuery
+$('#markJS').on('input', function(){
+    let keyword = $(this).val();
+    $('section').unmark().mark(keyword);
+})
 
+
+//version moi
+  var mark = function() {
+
+    // Read the keyword
+    var keyword = $("input[name='markJ']").val();
+
+    // Determine selected options
+    var options = {};
+    
+
+    // Remove previous marked elements and mark
+    // the new keyword inside the context
+    $(".divmain").unmark({
+      done: function() {
+        $(".divmain").mark(keyword, options);
+      }
+    });
+  };
+
+  $("input[name='markJ']").on("input", mark);
+
+
+ $("button[data-search='clear']").on("click", function() {
+    $(".divmain").unmark();
+    $("input[name='markJ']").val("").focus();
+  });
+
+
+// pour jump direct? voir https://www.jquery-az.com/jquery/demo.php?ex=153.0_3
+  /*function jumpTo() {
+    if ($results.length) {
+      var position,
+        $current = $results.eq(currentIndex);
+      $results.removeClass(currentClass);
+      if ($current.length) {
+        $current.addClass(currentClass);
+        position = $current.offset().top - offsetTop;
+        window.scrollTo(0, position);
+      }
+    }
+  }*/
+
+
+});
     </script>
 
 </body>
