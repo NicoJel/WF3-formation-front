@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>installation de jquery</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen" href="assets/css/bootstrap.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="assets/css/main.css" />
+
+</head>
+<body>
+    <header>
+        <nav class="row justify-content-center"><!-- pour centrer menu 1 -->
+            <div class="col align-self-center">
+                <div class="row">
+                    <div class="col"><a href=""><img src="" alt=""></a></div>
+                    <div class="col"><a href="">Mac</a></div>
+                    <div class="col"><a href="">iPad</a></div>
+                    <div class="col"><a href="">iPhone</a></div>
+                    <div class="col"><a href="">Watch</a></div>
+                    <div class="col"><a href="">TV</a></div>
+                    <div class="col"><a href="">Music</a></div>
+                    <div class="col"><a href="">assistance</a></div>
+                    <div class="col"><a href=""><img src="" alt=""></a></div>
+                    <div class="col"><a href=""><img src="" alt=""></a></div>
+                </div>
+            </div>
+        </nav>
+
+        <div class="row justify-content-center"><!-- pour centrer menu 2 -->
+            <div class="col-5 align-self-center">
+                <div class="row ">
+                    <div class="col">
+                        <a href=""><img src="assets/img/menu/iphone7.png" alt=""></a>
+                    </div>
+                    <div class="col">
+                        <a href=""><img src="assets/img/menu/iphone6s.png" alt=""></a>
+                    </div>
+                    <div class="col">
+                        <a href=""><img src="assets/img/menu/iphoneSE.png" alt=""></a>
+                    </div>
+                    <div class="col">
+                        <a href=""><img src="assets/img/menu/iOs10.png" alt=""></a>
+                    </div>
+                    <div class="col">
+                        <a href=""><img src="assets/img/menu/accessoires.png" alt=""></a>
+                    </div>
+                    <div class="col">
+                        <a href=""><img src="assets/img/menu/comparer.png" alt=""></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </header>
+
+    <section id="sec1 h-50"> <!-- section principale -->
+
+        <div class="row justify-content-center ">
+            <div class="col align-self-center">
+                <h1 class="text-center">iPhone</h1>
+                <h2 class="text-center">Numéro 7</h2>
+                
+                <p class="text-center"> <a href="" class="text-center">En savoir plus   </a> <!-- les deux liens a coté --><a href="" class="text-center"> acheter </a> <br>
+                    Ou rendez vous dès aujourd'hui dans un apple store</p>
+            </div>
+        </div>
+
+    </section>
+
+    <section id="sec2"> <!-- section bandeau -->
+        <div class="row justify-content-center" > <!-- centrer  -->
+            <div class="col-3 mt-3"> <!-- milieu gauche -->
+                <img src="assets/img/iPhone.png" alt="image iphone">
+            </div>
+            <div class="col-3">  <!-- milieu droite -->
+                <h2 class="text-center h-25">Passez à l'iPhone 7.</h2>
+                <p class="text-center h-25">Echangez votre smartphone contre un iPhone neuf dans un Apple Store et bénéficiez de mensualités réduites</p>
+                <a class ="text-center"href="">Comment ça marche ?</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="row justify-content-center"> <!-- section formulaire -->
+    <div class="col-4">
+        <div> <!-- contact -->
+            <h2 class="text-center">Contact</h2>
+        </div>
+        <div>
+            <form novalidate   method="post" id="contact" >
+            
+                <!-- Nom -->
+                <div class="form-group">
+                        <input type="text" required
+                            class="form-control" id="nom" name="nom" 
+                            placeholder="Nom et Prenom">          
+                </div>
+
+                <div class="row">
+                    <div class="form-group col">
+                            <input type="email" required
+                                class="form-control" id="email" name="email" 
+                                placeholder="Saisissez votre Email">
+                    </div>
+    
+                    <!-- Téléphone -->
+                    <div class="form-group col">
+                        <input type="tel" required class="form-control" id="tel" name="tel" placeholder="Saisissez votre Téléphone">
+                    </div>
+                </div>
+                <!-- Email -->
+                
+
+                <!-- sujet -->
+                <div class="form-group">
+                        <input type="text" required
+                            class="form-control" id="sujet" name="sujet" 
+                            placeholder="Sujet">
+                </div>
+
+                <div>
+                    <textarea name="textarea" rows="10" placeholder="écrivez votre message"></textarea>
+                </div>
+
+                <!-- Bouton de Soumission -->
+                 <div class="form-group row justify-content-center m-3">
+                    <button type="submit" class="btn btn-primary">Envoyer ma Demande</button>
+                </div>
+                </div>
+            </div>
+            </form>
+        </div>
+    </section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <!-- d'abord integration de jquery-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.slim.js" 
+    integrity="sha256-fNXJFIlca05BIO2Y5zh1xrShK3ME+/lYZ0j+ChxX2DA=" crossorigin="anonymous"></script>
+
+    <!--intergration de notre fichier JS-->
+    <script src="./assets/js/01.js"></script>
+</body>
+</html>

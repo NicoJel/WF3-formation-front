@@ -1,0 +1,72 @@
+h1, h2, h3{
+    font-family: 'Merienda', cursive;
+}
+
+header{
+    background-color: #061339;
+}
+
+h1, h2{
+    color: #FFF;
+}
+
+h3{
+    color: #2F4073
+    }
+
+header h1{
+    margin-left: 15%;
+}
+.sectiontitre{
+    
+    background-image: url(../img/background.jpg);
+    height: 20vh;
+    text-shadow: 2px 2px 3px black;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+.sectionprincipale{
+    background-color: rgb(241, 241, 241);
+
+}
+
+.sectiontexte{
+    background-color: rgb(221, 221, 221);
+    height: 30vh;
+}
+
+
+.divchat :hover{
+    background-color: #061339;
+    -webkit-transition: background-color 2s ease-out;
+    -moz-transition: background-color 2s ease-out;
+    -o-transition: background-color 2s ease-out;
+    transition: background-color 2s ease-out;
+}
+
+.divchat{
+    background-color: #7885A5;
+    max-height: 27vh;
+    
+    
+}
+
+.sectiontexte h2{
+    color: #2F4073
+}
+
+.divchat img{
+    max-height: 100%;
+    max-width: 100%;
+}
+    
+footer{
+    background-color: #061339;
+} 
+
+footer p{
+    color:white;
+}

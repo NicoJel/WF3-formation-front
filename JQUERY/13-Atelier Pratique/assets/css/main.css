@@ -1,0 +1,28 @@
+a{
+    text-decoration: none;
+    color: white;
+}
+
+body{
+    background-color: black;
+    color: white;
+}
+
+#sec1{
+    background-image: url("../img/hero_large.jpg");
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+#sec2{
+    background-color: white;
+    color: black;
+}
+#sec2 a{
+    color: black;
+}
+
+input{
+    border-radius: 10px;
+}
+
