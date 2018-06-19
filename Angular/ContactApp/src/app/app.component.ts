@@ -3,18 +3,11 @@
  * notre application, on importe "Component"
  * via @angular/core.
  */
-import {Component} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
+import {Contact} from './Shared/models/contact';
+import {UserApiService} from './Shared/Services/user/user-api.service';
 
-class Contact {
-  id: number;
-  name: string;
-  username: string;
-  email: string;
-  address?: object;
-  phone?: number;
-  website?: string;
-  company?: object;
-}
+
 /**
  * @Component est ce qu'on appelle un décorateur.
  * Il va nous permettre de définir 3 paramètres
@@ -59,7 +52,15 @@ class Contact {
  * Dans notre contexte MVVM, notre classe
  * correspond au ViewModel.
  */
-export class AppComponent {
+export class AppComponent implements OnInit {
+  constructor(private userApiService: UserApiService) {}
+  ngOnInit(): void {
+    this.userApiService.getUsers().subscribe(
+      contacts => {
+        console.log(contacts);
+      }
+    );
+  }
 
   // -- Déclaration d'une variable titre
   title = 'Contact App';
@@ -101,10 +102,31 @@ export class AppComponent {
 
   /**
    * Ma fonction displaycontact prend un contact en parametre et le transmet à la variable contactactif
-   * @param {Contact} contactcliquéparlutilisateur
+   * @param {Contact} contactcliqueparlutilisateur
    */
-  displayContact(contactcliquéparlutilisateur: Contact) {
-    this.contactActif = contactcliquéparlutilisateur;
+  choisirContact(contactcliqueparlutilisateur: Contact) {
+    this.contactActif = contactcliqueparlutilisateur;
     console.log (this.contactActif);
   }
+
+  /**
+   * Fonction qui permet de rajouter un nouveau contact dans la liste.
+   * @param event
+   */
+
+  ajouterContactDansListe(event: any) {
+
+    //aperçu dans la console
+    console.log(event);
+
+    // -- Récupération du Contact dans l'évenement
+    const leContact: Contact = event.leContact;
+
+    // --Ajout du Contact dans le tableau
+    this.mesContacts.push(leContact);
+  }
+
+
+
 }
+

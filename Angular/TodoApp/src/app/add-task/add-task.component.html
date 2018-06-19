@@ -1,0 +1,31 @@
+<form novalidate
+      #f="ngForm"
+      (ngSubmit)="addTask()"
+      class="form-inline my-2 my-lg-0"
+      *ngIf="active"
+>
+
+  <pre>
+    <!-- {{ task | json }} -->
+  </pre>
+
+  <input class="form-control mr-sm-2"
+         required
+         type="search"
+         name="name"
+         #name="ngModel"
+         [(ngModel)]="task.name"
+         [class.is-invalid]="f.invalid && f.touched"
+         placeholder="Ajouter une tâche"
+         aria-label="Ajouter une tâche">
+
+  <button
+    class="btn btn-primary my-2 my-sm-0"
+    type="submit"
+    [disabled]="f.invalid"
+  >
+    <span class="oi oi-plus"></span>
+    Ajouter
+  </button>
+
+</form>

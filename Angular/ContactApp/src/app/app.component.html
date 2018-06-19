@@ -16,7 +16,7 @@
       <ul class="list-group">
 
           <a *ngFor="let Contact of mesContacts"
-             (click)= "displayContact(Contact)"
+             (click)= "choisirContact(Contact)"
              [class.active]="Contact===contactActif"
             class="list-group-item list-group-item-action"
             href="javascript:void(0)">
@@ -26,19 +26,16 @@
 
 
       </ul>
+      <!--
+      Lorsque l'évenement unContactEstCree sera émit,
+      la fonctionn ajouterContactDansListe() ser déclanchée.
+      Elle prendre en parametre $event, qui contient les données de notre évenement unContactEstCree.
+      A savoir, le nouveauContact
+      -->
+      <app-ajouter (unContactEstCree)="ajouterContactDansListe($event)"></app-ajouter>
     </div>
     <div class="col-sm-8">
-      <div class="jumbotron" *ngIf="contactActif">
-        <h1 class="display-4">{{contactActif.name}}</h1>
-        <p class="lead">{{contactActif.username}}</p>
-        <hr class="my-4">
-        <input type="text" class="form-control"
-        [(ngModel)]="contactActif.name">
-      </div>
-      <div class="jumbotron" *ngIf="!contactActif">
-        <h1 class="display-4">COUCOU</h1>
-        <p class="lead">Choisissez un contact</p>
-      </div>
+      <app-profil [contact]="contactActif" (userhasbeenchanged)="saveContacts()"></app-profil>
     </div>
   </div>
   <footer class="text-center">
