@@ -1,0 +1,12 @@
+
+# BEGIN WordPress
+<IfModule mod_rewrite.c>
+RewriteEngine On
+RewriteBase /formation/front/WF3-formation-front/WORDPRESS/monsitewordpress2/
+RewriteRule ^index\.php$ - [L]
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule . /formation/front/WF3-formation-front/WORDPRESS/monsitewordpress2/index.php [L]
+</IfModule>
+
+# END WordPress
